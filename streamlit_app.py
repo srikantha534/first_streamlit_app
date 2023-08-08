@@ -1,7 +1,7 @@
 import streamlit
 
-streamlit.title("Hello world");
-streamlit.header("2-Hello world");
-streamlit.text("3-Hello world");
-streamlit.text("4-Hello world");
-streamlit.text("5-Hello world");
+streamlit.title("Hello world- Title");
+streamlit.header("Hello world- Header");
+streamlit.text("Hello world- Text1");
+streamlit.text("Hello world- Text2");
+streamlit.text("Hello world- Text3");
