@@ -1,7 +1,6 @@
 import streamlit
 
-streamlit.title("Hello world- Title");
-streamlit.header("Hello world- Header");
-streamlit.text("Hello world- Text1");
-streamlit.text("Hello world- Text2");
-streamlit.text("Hello world- Text3");
+streamlit.title("My parents new health diner");
+streamlit.header("Omega 3 & Blueberry Oatmeal");
+streamlit.text("Kale, Spinach & Rocket Smoothie ");
+streamlit.text("Hard-Boiled Free-Range Egg");
