@@ -80,10 +80,11 @@ def insert_row_snowflake(new_fruit):
     return "Thanks for adding"+new_fruit
     
 #add button to load the fruit list table
-  if streamlit.button('Get fruit load list'):
-    my_conn = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-    back_from_function = insert_row_snowflake(add_my_fruit)
-    streamlit.text(back_from_function)
+add_my_fruit = streamlit.text_input("What fruit would you like to add?")
+if streamlit.button('Get fruit load list'):
+  my_conn = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  back_from_function = insert_row_snowflake(add_my_fruit)
+  streamlit.text(back_from_function)
   
 #small exercise-2--------------------
 #-------the stop is written after the below lines are tested
