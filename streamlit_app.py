@@ -77,7 +77,7 @@ var = streamlit.text("What fruit would you like to add?")
 def insert_row_snowflake(new_fruit):
   with my_conn.cursor() as my_cur:
     my_cur.execute("insert into fruit_load_list values('test2-streamlit app')")
-    return "Thanks for adding"+new_fruit
+    return "Thanks for adding "+new_fruit
     
 #add button to load the fruit list table
 add_my_fruit = streamlit.text_input("What fruit would you like to add?")
