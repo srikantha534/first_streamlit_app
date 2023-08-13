@@ -52,3 +52,7 @@ my_cur.execute("select * from fruit_load_list")
 my_data = my_cur.fetchall()
 streamlit.header("Sample list from fruit_load_list table:")
 streamlit.dataframe(my_data)
+
+#small exercise----------------------
+
+streamlit.text("What fruit would you like to add?")
