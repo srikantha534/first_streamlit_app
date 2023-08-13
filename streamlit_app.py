@@ -56,4 +56,5 @@ streamlit.dataframe(my_data)
 #small exercise----------------------
 
 streamlit.text("What fruit would you like to add?")
-var=streamlit.text_input('value')
+var=streamlit.text_input('')
+streamlit.text(var)
