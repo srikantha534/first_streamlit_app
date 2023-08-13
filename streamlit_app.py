@@ -64,9 +64,7 @@ if streamlit.button('Get fruit load list'):
   streamlit.dataframe(my_data_rows)
 
 #my_data = my_cur.fetchone()--fetch one row
-
-
-streamlit.dataframe(my_data)
+#my_data = my_cur.fetchall()--fetch all rows
   
 #-------the stop is written after the below lines are tested
 streamlit.stop()
