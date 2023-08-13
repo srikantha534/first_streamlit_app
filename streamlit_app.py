@@ -30,6 +30,12 @@ fruits_to_show=my_fruit_list.loc[fruits_selected]
 #to show
 streamlit.dataframe(fruits_to_show)
 
+#this is for function
+def get_fruitvice_data(this_fruit_choice)
+  fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+this_fruit_choice)
+  fruitvice_normalize = pandas.json_normalize(fruitvice_response.json())
+  return fruitvice_normalize
+
 #This is for the fruitvice api
 streamlit.header("Fruityvice Fruit Advice!")
 
@@ -38,9 +44,12 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information")
   else:
-    fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    fruitvice_normalize = pandas.json_normalize(fruitvice_response.json())
-    streamlit.dataframe(fruitvice_normalize)    
+    #fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+    #fruitvice_normalize = pandas.json_normalize(fruitvice_response.json())
+    #streamlit.dataframe(fruitvice_normalize)  
+    back_from_function = get_fruitvice_data(fruit_choice)
+    streamlit.dataframe(back_from_function) 
+    
 except URLError as e:
     streamlit.error()
   
