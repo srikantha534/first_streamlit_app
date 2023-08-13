@@ -44,39 +44,36 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information")
   else:
-    #fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    #fruitvice_normalize = pandas.json_normalize(fruitvice_response.json())
-    #streamlit.dataframe(fruitvice_normalize)  
     back_from_function = get_fruitvice_data(fruit_choice)
     streamlit.dataframe(back_from_function) 
     
 except URLError as e:
     streamlit.error()
+
+streamlit.header("The fruit load list contains:")
+#snowflake related functions
+def get_fruit_load_list():
+  with my_conn.cursor() as my_cur:
+    my_cur.execute("select * from fruit_load_list")
+    return my_data = my_cur.fetchall()
+
+#add button to load the fruit list table
+if streamlit.button('Get fruit load list'):
+  my_conn = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_rows=get_fruit_load_list()
+  streamlit.dataframe(my_data_rows)
+
+#my_data = my_cur.fetchone()--fetch one row
+
+
+streamlit.dataframe(my_data)
   
-#streamlit.write('The user entered', fruit_choice)
-
-
-
-
-#fruitvice_response=requests.get("https://fruityvice.com/api/fruit/watermelon")
-#streamlit.text(fruitvice_response)
-#streamlit.text(fruitvice_response.json())
-
-
-
 #-------the stop is written after the below lines are tested
 streamlit.stop()
 #snowflake connectors
 
 
-my_conn = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_conn.cursor()
-#my_cur.execute("select current_user(),current_account(),current_region()")
-my_cur.execute("select * from fruit_load_list")
-#my_data = my_cur.fetchone()--fetch one row
-my_data = my_cur.fetchall()
-streamlit.header("Sample list from fruit_load_list table:")
-streamlit.dataframe(my_data)
+
 
 #small exercise----------------------
 
