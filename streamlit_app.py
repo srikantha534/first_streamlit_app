@@ -58,3 +58,8 @@ streamlit.dataframe(my_data)
 streamlit.text("What fruit would you like to add?")
 var=streamlit.text_input('')
 streamlit.write('The fruit name you entered is',var)
+
+#small exercise-2--------------------
+my_cur.execute("insert into fruit_load_list values('test-streamlit app')");
+
+
