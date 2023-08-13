@@ -49,6 +49,6 @@ my_cur = my_conn.cursor()
 #my_cur.execute("select current_user(),current_account(),current_region()")
 my_cur.execute("select * from fruit_load_list")
 #my_data = my_cur.fetchone()--fetch one row
-my_data = mycur.fetchall()
+my_data = my_cur.fetchall()
 streamlit.header("Sample list from fruit_load_list table:")
 streamlit.dataframe(my_data)
