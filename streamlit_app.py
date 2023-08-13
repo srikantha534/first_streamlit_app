@@ -51,6 +51,8 @@ except URLError as e:
     streamlit.error()
 
 streamlit.header("The fruit load list contains:")
+
+#snowflake connectors
 #snowflake related functions
 def get_fruit_load_list():
   with my_conn.cursor() as my_cur:
@@ -68,10 +70,6 @@ if streamlit.button('Get fruit load list'):
   
 #-------the stop is written after the below lines are tested
 streamlit.stop()
-#snowflake connectors
-
-
-
 
 #small exercise----------------------
 
