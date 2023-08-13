@@ -1,4 +1,9 @@
+#the below imports are placed one-after-the-other after testing all the things
 import streamlit
+import pandas
+import requests
+import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title("My Mom`s new healthy diner");
 
@@ -10,7 +15,7 @@ streamlit.text('🥑🍞 Avacado Toast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-import pandas
+
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list=my_fruit_list.set_index('Fruit')
 
@@ -31,7 +36,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice=streamlit.text_input('Provide fruit name', 'Kiwi')
 streamlit.write('The user entered', fruit_choice)
 
-import requests
+
 fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 
 #fruitvice_response=requests.get("https://fruityvice.com/api/fruit/watermelon")
@@ -41,8 +46,10 @@ fruitvice_response=requests.get("https://fruityvice.com/api/fruit/"+fruit_choice
 fruitvice_normalize = pandas.json_normalize(fruitvice_response.json())
 streamlit.dataframe(fruitvice_normalize)
 
+#-------the stop is written after the below lines are tested
+streamlit.stop()
 #snowflake connectors
-import snowflake.connector
+
 
 my_conn = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_conn.cursor()
